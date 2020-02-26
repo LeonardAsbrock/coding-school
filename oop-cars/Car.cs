@@ -30,6 +30,40 @@ namespace oop_cars
             set { _model = value; }
         }
 
+        private List<Tire> _tires;
+
+        public List<Tire> Tires
+        {
+            get { return _tires; }
+            set { _tires = value;}
+        }
+        
+        private List<Door> _doors;
+
+        public List<Door> Doors
+        {
+            get { return _doors; }
+            set { _doors = value;}
+        }
+
+        private string _serialNumber;
+        
+        public string SerialNumber
+        {
+            get { return _serialNumber;  }
+            set { _serialNumber = value; }
+        }
+        private Car() { }
+
+        public Car(string model, Engine engine, Manufacturer manufacturer, List<Tire> tires, string serialNumber, List<Door> doors)
+        {
+            this.Model = model;
+            this.Engine = engine;
+            this.Manufacturer = manufacturer;
+            this._tires = tires;
+            this.SerialNumber = serialNumber;
+            this.Doors = doors;
+        }
         public void Drive()
         {
             Console.WriteLine();

@@ -14,5 +14,11 @@ namespace oop_cars
             set { _ps = value; }
         }
 
+        private Engine() { }
+
+        public Engine(int ps)
+        {
+            this.PS = ps;
+        }
     }
 }
