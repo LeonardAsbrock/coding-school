@@ -22,19 +22,22 @@ namespace oop_cars
             {
                 tires.Add(tire);
             }
-            Door door = new Door();
             List<Door> doors = new List<Door>();
             if (carType == CarType.Limousine)
             {
-                doors.Add(door);
-                doors.Add(door);
+                for (int i = 0; i < (int)CarType.Limousine; i++)
+                {
+                    Door door = new Door();
+                    doors.Add(door);
+                }
             }
             else if(carType == CarType.Coupe)
             {
-                doors.Add(door);
-                doors.Add(door);
-                doors.Add(door);
-                doors.Add(door);
+                for (int i = 0; i < (int)CarType.Coupe; i++)
+                {
+                    Door door = new Door();
+                    doors.Add(door);
+                }
             }
             Engine engine = new Engine(ps);
             string serialNumber = Guid.NewGuid().ToString();

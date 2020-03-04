@@ -9,18 +9,24 @@ namespace oop_cars
         {
             Manufacturer BMW = new Manufacturer("BMW");
             Manufacturer Audi = new Manufacturer("Audi");
-            List<Car> cars = new List<Car>();
-            Car car1 = BMW.BuildCar("520", 230, 20, global::CarType.Coupe);
-            Car car2 = BMW.BuildCar("325", 230, 20, global::CarType.Limousine);
-            Car car3 = Audi.BuildCar("A3", 230, 20, global::CarType.Coupe);
-            Car car4 = Audi.BuildCar("A7", 230, 20, global::CarType.Limousine);
-            cars.Add(car1);
-            cars.Add(car2);
-            cars.Add(car3);
-            cars.Add(car4);
+
+            Car car1 = BMW.BuildCar("520", 230, 20, CarType.Coupe);
+            Car car2 = BMW.BuildCar("325", 230, 20, CarType.Limousine);
+            Car car3 = Audi.BuildCar("A3", 230, 20, CarType.Coupe);
+            Car car4 = Audi.BuildCar("A7", 230, 20, CarType.Limousine);
+
+            Dictionary<string, Car> cars = new Dictionary<string, Car>();
+            cars.Add(car1.SerialNumber, car1);
+            cars.Add(car2.SerialNumber, car2);
+            cars.Add(car3.SerialNumber, car3);
+            cars.Add(car4.SerialNumber, car4);
+
             foreach (var car in cars)
             {
-                Console.WriteLine($"Engage: {car.Manufacturer.Name}\t{car.Model}\t{car.Doors.Count}\t {car.SerialNumber}");
+                if (car.Value.Doors.Count == (int)CarType.Coupe)
+                {
+                    Console.WriteLine($"Engage: {car.Value.Manufacturer.Name}\t{car.Value.Model}\t{car.Value.Doors.Count}\t {car.Key}");
+                }
             }
         }
     }
